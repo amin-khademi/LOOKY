@@ -68,9 +68,22 @@ lib/
 └── injection.dart      # Dependency injection setup
 ```
 
+
 ## Contribution Guide
 <p>Please fork the repository and open a pull request to submit your contributions. You can find more details in the <a href="CONTRIBUTING.md">Contribution Guide</a>.</p>
 
 ## License
 
 LOOKY is released under the [MIT License](LICENSE).
+
+---
+
+## Release
+
+### Version 1.0.0
+- **Initial Release**: First public release of LOOKY Barber Finder App.
+- **Features**:
+  - Core functionality for finding barbers and shops.
+  - Advanced filtering options for services and shop types.
+  - Responsive and modern UI design.
+- **Download**: [LOOKY Release V1.0.0](https://github.com/amin-khademi/LOOKY/releases/tag/V1.0.0)
