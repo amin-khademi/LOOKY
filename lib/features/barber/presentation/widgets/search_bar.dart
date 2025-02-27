@@ -20,23 +20,27 @@ class SearchBarApp extends StatelessWidget {
               .textTheme
               .headlineSmall!
               .copyWith(color: Colors.black45, fontSize: 14),
-          suffixIcon: Container(
-            width: 37,
-            height: 37,
-            margin: const EdgeInsets.all(5),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: AppColors.color5,
-              borderRadius: BorderRadius.circular(13),
-            ),
-            child: image(AppIcons.icSearch),
-          ),
+          suffixIcon: _buildSuffixIcon(),
           border: InputBorder.none,
           contentPadding:
               const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
         ),
         style: const TextStyle(fontSize: 16, color: Colors.black),
       ),
+    );
+  }
+
+  Widget _buildSuffixIcon() {
+    return Container(
+      width: 37,
+      height: 37,
+      margin: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: AppColors.color5,
+        borderRadius: BorderRadius.circular(13),
+      ),
+      child: image(AppIcons.icSearch),
     );
   }
 }

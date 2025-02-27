@@ -15,41 +15,62 @@ class ServiceItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ServiceCubit, ServiceState>(
       builder: (context, state) {
-        bool isSelected = false;
-        if (state is ServiceLoaded) {
-          isSelected = state.selectedServiceSlugs.contains(service.slug);
-        }
+        bool isSelected = _isSelected(state);
 
         return GestureDetector(
-          onTap: () =>
-              context.read<ServiceCubit>().toggleServiceSelection(service.slug),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 11, vertical: 5),
-                margin: const EdgeInsets.only(right: 10),
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.color7, width: 1),
-                  color: isSelected ? AppColors.color6 : Colors.transparent,
-                  borderRadius: BorderRadius.circular(33),
-                ),
-                child: Text(
-                  service.title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineSmall!
-                      .copyWith(color: Colors.white, fontSize: 14),
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            ],
-          ),
+          onTap: () => _toggleServiceSelection(context),
+          child: _buildServiceContainer(context, isSelected),
         );
       },
+    );
+  }
+
+  bool _isSelected(ServiceState state) {
+    if (state is ServiceLoaded) {
+      return state.selectedServiceSlugs.contains(service.slug);
+    }
+    return false;
+  }
+
+  void _toggleServiceSelection(BuildContext context) =>
+      context.read<ServiceCubit>().toggleServiceSelection(service.slug);
+
+  Widget _buildServiceContainer(BuildContext context, bool isSelected) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _buildServiceBox(context, isSelected),
+      ],
+    );
+  }
+
+  Widget _buildServiceBox(BuildContext context, bool isSelected) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 5),
+      margin: const EdgeInsets.only(right: 10),
+      decoration: _buildBoxDecoration(isSelected),
+      child: _buildServiceText(context),
+    );
+  }
+
+  BoxDecoration _buildBoxDecoration(bool isSelected) {
+    return BoxDecoration(
+      border: Border.all(color: AppColors.color7, width: 1),
+      color: isSelected ? AppColors.color6 : Colors.transparent,
+      borderRadius: BorderRadius.circular(33),
+    );
+  }
+
+  Text _buildServiceText(BuildContext context) {
+    return Text(
+      service.title,
+      style: Theme.of(context)
+          .textTheme
+          .headlineSmall!
+          .copyWith(color: Colors.white, fontSize: 14),
+      textAlign: TextAlign.center,
+      maxLines: 2,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }

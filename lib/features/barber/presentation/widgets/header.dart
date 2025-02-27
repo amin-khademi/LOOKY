@@ -11,11 +11,23 @@ class Header extends StatelessWidget {
     return Column(
       children: [
         image(AppImages.cut),
-        Text("LOOKY",
-            style: theme.displayLarge!.copyWith(color: AppColors.color1)),
-        Text("Fastest Way to Find Barbers",
-            style: theme.headlineSmall!.copyWith(color: AppColors.color3)),
+        _buildTitle(theme),
+        _buildSubtitle(theme),
       ],
+    );
+  }
+
+  Widget _buildTitle(TextTheme theme) {
+    return Text(
+      "LOOKY",
+      style: theme.displayLarge!.copyWith(color: AppColors.color1),
+    );
+  }
+
+  Widget _buildSubtitle(TextTheme theme) {
+    return Text(
+      "Fastest Way to Find Barbers",
+      style: theme.headlineSmall!.copyWith(color: AppColors.color3),
     );
   }
 }

@@ -91,6 +91,7 @@ class BarberListSection extends StatelessWidget {
               onPressed: () {
                 context.read<ServiceCubit>().unselectAllFilters();
                 context.read<BarberCubit>().loadBarbers();
+                
               },
             ),
             const SizedBox(height: 32)

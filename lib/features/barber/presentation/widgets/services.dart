@@ -31,27 +31,31 @@ class ServiceFilterBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: services.map((service) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              image(service['icon'] as String),
-              const SizedBox(height: 4),
-              Padding(
-                padding: service['label'] == 'Skin Fades'
-                    ? const EdgeInsets.only(bottom: 11.0)
-                    : EdgeInsets.zero,
-                child: Text(
-                  service['label'] as String,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineSmall!
-                      .copyWith(color: AppColors.color4, fontSize: 14),
-                ),
-              ),
-            ],
-          );
+          return _buildServiceItem(context, service);
         }).toList(),
       ),
+    );
+  }
+
+  Widget _buildServiceItem(BuildContext context, Map<String, dynamic> service) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        image(service['icon'] as String),
+        const SizedBox(height: 4),
+        Padding(
+          padding: service['label'] == 'Skin Fades'
+              ? const EdgeInsets.only(bottom: 11.0)
+              : EdgeInsets.zero,
+          child: Text(
+            service['label'] as String,
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall!
+                .copyWith(color: AppColors.color4, fontSize: 14),
+          ),
+        ),
+      ],
     );
   }
 }

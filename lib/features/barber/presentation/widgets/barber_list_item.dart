@@ -46,12 +46,16 @@ class _BarberImage extends StatelessWidget {
               height: 90,
               fit: BoxFit.cover,
             )
-          : Container(
-              width: 80,
-              height: 80,
-              color: Colors.grey.shade300,
-              child: const Icon(Icons.person, size: 40),
-            ),
+          : _defaultAvatar(),
+    );
+  }
+
+  Widget _defaultAvatar() {
+    return Container(
+      width: 80,
+      height: 80,
+      color: Colors.grey.shade300,
+      child: const Icon(Icons.person, size: 40),
     );
   }
 }
@@ -90,36 +94,43 @@ class _BarberNameAndRating extends StatelessWidget {
         Expanded(
           child: Row(
             children: [
-              Text(
-                barber.fullname.length > 20
-                    ? '${barber.fullname.substring(0, 20)}...'
-                    : barber.fullname,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(color: AppColors.color2, fontSize: 18),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
+              _buildName(context),
               const SizedBox(width: 4),
               if (!barber.isShop) image(AppIcons.icBlueTick),
             ],
           ),
         ),
-        if (barber.rate > 0)
-          Row(
-            children: [
-              image(AppIcons.icStar),
-              const SizedBox(width: 4),
-              Text(
-                barber.rate.toString(),
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineSmall!
-                    .copyWith(color: AppColors.color6, fontSize: 14),
-              ),
-            ],
-          ),
+        if (barber.rate > 0) _buildRating(context),
+      ],
+    );
+  }
+
+  Widget _buildName(BuildContext context) {
+    return Text(
+      barber.fullname.length > 20
+          ? '${barber.fullname.substring(0, 20)}...'
+          : barber.fullname,
+      style: Theme.of(context)
+          .textTheme
+          .bodyMedium!
+          .copyWith(color: AppColors.color2, fontSize: 18),
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+    );
+  }
+
+  Widget _buildRating(BuildContext context) {
+    return Row(
+      children: [
+        image(AppIcons.icStar),
+        const SizedBox(width: 4),
+        Text(
+          barber.rate.toString(),
+          style: Theme.of(context)
+              .textTheme
+              .headlineSmall!
+              .copyWith(color: AppColors.color6, fontSize: 14),
+        ),
       ],
     );
   }
@@ -157,22 +168,30 @@ class _BarberAddress extends StatelessWidget {
       text: TextSpan(
         style: const TextStyle(fontSize: 13, color: Colors.black),
         children: [
-          TextSpan(
-            text: "${address.split(' ')[0]} Kms | ",
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(color: AppColors.color5, fontSize: 14),
-          ),
-          TextSpan(
-            text: address.substring(address.indexOf(' ') + 1),
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(color: AppColors.color4, fontSize: 14),
-          ),
+          _buildDistance(context),
+          _buildAddress(context)
         ],
       ),
+    );
+  }
+
+  TextSpan _buildDistance(BuildContext context) {
+    return TextSpan(
+      text: "${address.split(' ')[0]} Kms | ",
+      style: Theme.of(context)
+          .textTheme
+          .headlineSmall!
+          .copyWith(color: AppColors.color5, fontSize: 14),
+    );
+  }
+
+  TextSpan _buildAddress(BuildContext context) {
+    return TextSpan(
+      text: address.substring(address.indexOf(' ') + 1),
+      style: Theme.of(context)
+          .textTheme
+          .headlineSmall!
+          .copyWith(color: AppColors.color4, fontSize: 14),
     );
   }
 }

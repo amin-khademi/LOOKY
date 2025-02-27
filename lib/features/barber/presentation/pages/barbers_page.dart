@@ -57,9 +57,7 @@ class _BarbersPageState extends State<BarbersPage> {
             // services chip
             ServicesListWidget(onSelectionChanged: _applyFilters),
             const SizedBox(height: 8),
-            const Divider(
-              height: 0.2,
-            ),
+            const Divider(height: 0.5, color: AppColors.color3),
             // Shop filter toggle
             _shopSwitch(),
             // Barbers list
