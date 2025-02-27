@@ -58,3 +58,8 @@ flutter:
           weight: 500
         - asset: assets/fonts/DMSans-SemiBold.ttf
           weight: 600
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+          weight: 400
+        

@@ -14,12 +14,11 @@ class SearchBarApp extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       child: TextField(
+        textAlign: TextAlign.center,
         decoration: InputDecoration(
           hintText: 'Search in Barbers, Location and Services...',
-          hintStyle: Theme.of(context)
-              .textTheme
-              .headlineSmall!
-              .copyWith(color: Colors.black45, fontSize: 14),
+          hintStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+              color: Colors.black45, fontSize: 14, fontFamily: "Roboto"),
           suffixIcon: _buildSuffixIcon(),
           border: InputBorder.none,
           contentPadding:
