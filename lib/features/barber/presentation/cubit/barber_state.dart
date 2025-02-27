@@ -44,11 +44,11 @@ class BarberLoaded extends BarberState {
   }
 }
 
+// Make sure to add this field to your existing BarberError class
 class BarberError extends BarberState {
   final String message;
+  final String?
+      type; // Can be 'server', 'cache', 'network' or null for unknown errors
 
-  const BarberError({required this.message});
-
-  @override
-  List<Object> get props => [message];
+  BarberError({required this.message, this.type});
 }
