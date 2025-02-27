@@ -14,17 +14,20 @@ class BarberListItem extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(18),
+      side:  BorderSide(color: AppColors.color4.withOpacity(0.8), width: 3),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _BarberImage(avatar: barber.avatar),
-            const SizedBox(width: 16),
-            Expanded(child: _BarberDetails(barber: barber)),
-          ],
-        ),
+      padding: const EdgeInsets.all(12),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+        _BarberImage(avatar: barber.avatar),
+        const SizedBox(width: 16),
+        Expanded(child: _BarberDetails(barber: barber)),
+        ],
+      ),
       ),
     );
   }
@@ -38,7 +41,7 @@ class _BarberImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(16),
       child: avatar != null && avatar!.isNotEmpty
           ? image(
               avatar!,
@@ -95,7 +98,7 @@ class _BarberNameAndRating extends StatelessWidget {
           child: Row(
             children: [
               _buildName(context),
-              const SizedBox(width: 4),
+              const SizedBox(width: 6),
               if (!barber.isShop) image(AppIcons.icBlueTick),
             ],
           ),

@@ -18,7 +18,7 @@ class NearBy extends StatelessWidget {
       width: double.infinity,
       height: 200,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(18),
         image: const DecorationImage(
           image: AssetImage(AppImages.slider),
           fit: BoxFit.cover,
@@ -38,7 +38,7 @@ class NearBy extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(11),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(18),
           border: Border.all(
             color: Colors.white.withOpacity(0.4),
             width: 1,
@@ -84,13 +84,16 @@ class NearBy extends StatelessWidget {
   Widget _buildDescription(BuildContext context) {
     return Text(
       'Find the nearest Barber Shop to you on the map',
-      style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-          color: Colors.white.withOpacity(0.7), fontSize: 15),
+      style: Theme.of(context)
+          .textTheme
+          .headlineSmall!
+          .copyWith(color: Colors.white.withOpacity(0.7), fontSize: 15),
     );
   }
 
   Widget _buildButton() {
     return CupertinoButton(
+      borderRadius: BorderRadius.circular(12),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       color: AppColors.color5,
       child: const Text("View the map"),
