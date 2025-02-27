@@ -43,16 +43,26 @@ class _BottomNavState extends State<BottomNav> {
           ),
         ],
       ),
-      child: BottomNavigationBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        currentIndex: _selectedIndex,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
-        items: List.generate(
-            _pages.length, (i) => _buildBottomNavigationBarItem(i)),
+      child: Theme(
+        data: Theme.of(context).copyWith(
+            splashFactory: InkRipple.splashFactory,
+            splashColor: Colors.grey.withOpacity(0.3),
+            highlightColor: Colors.transparent,
+            // This is where we customize the splash shape
+            colorScheme: Theme.of(context)
+                .colorScheme
+                .copyWith(surfaceContainerHighest: Colors.transparent)),
+        child: BottomNavigationBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          currentIndex: _selectedIndex,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          onTap: _onItemTapped,
+          type: BottomNavigationBarType.fixed,
+          items: List.generate(
+              _pages.length, (i) => _buildBottomNavigationBarItem(i)),
+        ),
       ),
     );
   }
@@ -72,7 +82,8 @@ class _BottomNavState extends State<BottomNav> {
           image(
             icons[index],
             size: 25,
-            color: _selectedIndex == index ? AppColors.color2 : AppColors.color3,
+            color:
+                _selectedIndex == index ? AppColors.color2 : AppColors.color3,
           ),
           if (_selectedIndex == index)
             Container(
