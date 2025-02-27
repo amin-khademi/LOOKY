@@ -36,7 +36,6 @@ class ServiceLoaded extends ServiceState {
 
 class ServiceError extends ServiceState {
   final String message;
-
   const ServiceError({required this.message});
 
   @override
