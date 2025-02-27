@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: MaterialApp(
-          title: 'Barber App',
+          title: 'New Horizon',
           debugShowCheckedModeBanner: false,
           theme: AppThemes.lightTheme,
           home: const BottomNav(),
