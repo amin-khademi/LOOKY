@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_horizen_test_app/core/theme/theme.dart';
+import 'package:new_horizen_test_app/features/navigation/bottom_nav.dart';
 
 import 'features/barber/presentation/cubit/barber_cubits.dart';
-import 'features/barber/presentation/pages/barbers_page.dart';
 import 'features/services/presentation/cubit/service_cubits.dart';
 import 'injection.dart' as di;
 
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           title: 'Barber App',
           debugShowCheckedModeBanner: false,
           theme: AppThemes.lightTheme,
-          home: const BarbersPage(),
+          home: const BottomNav(),
         ),
       ),
     );
