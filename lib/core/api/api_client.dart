@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:ofogh_test_app/core/utils/constants.dart';
+import 'package:new_horizen_test_app/core/utils/constants.dart';
 
 class ApiClient {
   final Dio _dio;
