@@ -21,9 +21,8 @@ class ServiceItem extends StatelessWidget {
         }
 
         return GestureDetector(
-          onTap: () {
-            context.read<ServiceCubit>().toggleServiceSelection(service.slug);
-          },
+          onTap: () =>
+              context.read<ServiceCubit>().toggleServiceSelection(service.slug),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -32,16 +31,16 @@ class ServiceItem extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 11, vertical: 5),
                 margin: const EdgeInsets.only(right: 10),
                 decoration: BoxDecoration(
-                  border: Border.all(color:AppColors.color7, width: 1),
+                  border: Border.all(color: AppColors.color7, width: 1),
                   color: isSelected ? AppColors.color6 : Colors.transparent,
                   borderRadius: BorderRadius.circular(33),
                 ),
                 child: Text(
                   service.title,
-                 style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(color: Colors.white, fontSize: 14),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineSmall!
+                      .copyWith(color: Colors.white, fontSize: 14),
                   textAlign: TextAlign.center,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
