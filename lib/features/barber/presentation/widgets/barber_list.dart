@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:new_horizen_test_app/core/theme/theme.dart';
 import 'package:new_horizen_test_app/core/widgets/widgets.dart';
+import 'package:new_horizen_test_app/features/services/presentation/cubit/service_cubits.dart';
 
 import '../cubit/barber_cubits.dart';
 import '../cubit/barber_state.dart';
@@ -88,6 +89,7 @@ class BarberListSection extends StatelessWidget {
               color: AppColors.color5,
               child: const Text("Retry"),
               onPressed: () {
+                context.read<ServiceCubit>().unselectAllFilters();
                 context.read<BarberCubit>().loadBarbers();
               },
             ),

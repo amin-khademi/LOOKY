@@ -37,20 +37,20 @@ class BarberCubit extends Cubit<BarberState> {
 
   BarberState _handleError(dynamic failure) {
     if (failure is ServerException) {
-      return BarberError(
+      return const BarberError(
           message: 'Unable to connect to server. Please try again later.',
           type: 'server');
     } else if (failure is CacheException) {
-      return BarberError(
+      return const BarberError(
           message: 'Could not load saved data. Please restart the app.',
           type: 'cache');
     } else if (failure is NetworkException) {
-      return BarberError(
+      return const BarberError(
           message:
               'No internet connection. Please check your network settings.',
           type: 'network');
     } else {
-      return BarberError(
+      return const BarberError(
           message: 'An unexpected error occurred. Please try again.',
           type: 'unknown');
     }

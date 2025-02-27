@@ -32,4 +32,11 @@ class ServiceCubit extends Cubit<ServiceState> {
       emit(currentState.copyWith(selectedServiceSlugs: updatedSelection));
     }
   }
+
+  void unselectAllFilters() {
+    if (state is ServiceLoaded) {
+      final currentState = state as ServiceLoaded;
+      emit(currentState.copyWith(selectedServiceSlugs: []));
+    }
+  }
 }
