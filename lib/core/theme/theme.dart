@@ -25,7 +25,7 @@ class AppThemes {
       TextStyle(color: AppColors.color1, fontFamily: 'DMSans');
   static final ThemeData lightTheme = ThemeData(
     dividerColor: AppColors.color,
-    scaffoldBackgroundColor: AppColors.color1,
+    scaffoldBackgroundColor: AppColors.color2,
     textTheme: TextTheme(
       displayLarge: lightBaseTextStyle.copyWith(
           fontSize: 50, fontWeight: FontWeight.w700),
@@ -74,9 +74,10 @@ class AppIcons {
   static const String icShave = "$_base/shave.svg";
   static const String icStar = "$_base/star.svg";
   static const String icUser = "$_base/user.svg";
+  
 }
 
 class AppAnimations {
-  // static const String _base = "assets/animations";
-  // static const String loading = "$_base/loading.json";
+  static const String _base = "assets/gifs";
+  static const String empty = "$_base/Animation.json";
 }
