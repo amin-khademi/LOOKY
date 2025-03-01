@@ -74,7 +74,7 @@ lib/
 
 ## License
 
-LOOKY is released under the [MIT License](LICENSE).
+LOOKY is released under the [MIT Licence](LICENCE).
 
 ---
 
